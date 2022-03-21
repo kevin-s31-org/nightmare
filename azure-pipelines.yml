@@ -38,7 +38,7 @@ steps:
       sudo curl -LO  'https://raw.githubusercontent.com/snyk-tech-services/snyk-scan.sh/main/snyk-scan.sh'
       ls -l
       sudo chmod +x snyk-scan.sh
-      sudo ./snyk-scan.sh --mode=test --type=python
+      sudo ./snyk-scan.sh --mode=test --type=ruby
 #      sudo ./snyk-scan.sh --mode=test --type=dotnet > results.dotnet.json 
   displayName: 'Snyk-scan.sh'
 
