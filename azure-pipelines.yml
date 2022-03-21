@@ -35,7 +35,7 @@ steps:
   displayName: 'Snyk auth'
 
 - script: |
-      sudo curl -Lo  'https://raw.githubusercontent.com/snyk-tech-services/snyk-scan.sh/main/snyk-scan.sh'
+      sudo curl -LO  'https://raw.githubusercontent.com/snyk-tech-services/snyk-scan.sh/main/snyk-scan.sh'
       ls -l
       chmod +x snyk-scan.sh
       sudo ./snyk-scan.sh --mode=test --type=python
