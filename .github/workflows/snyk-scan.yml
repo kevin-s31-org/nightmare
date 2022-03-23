@@ -19,7 +19,6 @@ jobs:
           sudo curl -LO  'https://raw.githubusercontent.com/snyk-tech-services/snyk-scan.sh/main/snyk-scan.sh'
           ls -l
           sudo chmod +x snyk-scan.sh
-          sudo ./snyk-scan.sh --mode=test --type=golang
       - name: Run snyk-scan.sh for python
         run: |
           sudo ./snyk-scan.sh --mode=test --type=python
