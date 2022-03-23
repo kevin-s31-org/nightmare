@@ -22,12 +22,16 @@ jobs:
       - name: Run snyk-scan.sh for python
         run: |
           sudo ./snyk-scan.sh --mode=test --type=python
+        continue-on-error: true
       - name: Run snyk-scan.sh for golang
         run: |
           sudo ./snyk-scan.sh --mode=test --type=golang
+        continue-on-error: true
       - name: Run snyk-scan.sh for java_maven
         run: |
           sudo ./snyk-scan.sh --mode=test --type=java_maven
+        continue-on-error: true
       - name: Run snyk-scan.sh for java_gradle
         run: |
           sudo ./snyk-scan.sh --mode=test --type=java_gradle
+        continue-on-error: true
