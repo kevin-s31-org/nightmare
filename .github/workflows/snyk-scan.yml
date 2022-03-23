@@ -34,4 +34,3 @@ jobs:
       - name: Run snyk-scan.sh for java_gradle
         run: |
           sudo ./snyk-scan.sh --mode=test --type=java_gradle
-        continue-on-error: true
