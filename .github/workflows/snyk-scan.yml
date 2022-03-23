@@ -1,0 +1,25 @@
+name: Using snyk-scan to scan monorepos
+on: push
+jobs:
+  Snyk-scan:
+    runs-on: ubuntu-latest
+    
+#    strategy:
+#      matrix:
+#        node-version: [14.x]
+    
+    steps:
+      - uses: actions/checkout@master
+      - uses: snyk/actions/setup@master
+      - name: Run snyk-scan.sh for java
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk auth ${{ secrets.SNYK_TOKEN }}
+          sudo curl -LO  'https://raw.githubusercontent.com/snyk-tech-services/snyk-scan.sh/main/snyk-scan.sh'
+          ls -l
+          sudo chmod +x snyk-scan.sh
+          sudo ./snyk-scan.sh --mode=test --type=java
+      - name: Run snyk-scan.sh for python
+        run: |
+          sudo ./snyk-scan.sh --mode=test --type=python
