@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: snyk/actions/setup@master
-      - name: Run snyk-scan.sh for java
+      - name: Install snyk-scan.sh
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
@@ -19,7 +19,16 @@ jobs:
           sudo curl -LO  'https://raw.githubusercontent.com/snyk-tech-services/snyk-scan.sh/main/snyk-scan.sh'
           ls -l
           sudo chmod +x snyk-scan.sh
-          sudo ./snyk-scan.sh --mode=test --type=java
+          sudo ./snyk-scan.sh --mode=test --type=golang
       - name: Run snyk-scan.sh for python
         run: |
           sudo ./snyk-scan.sh --mode=test --type=python
+      - name: Run snyk-scan.sh for golang
+        run: |
+          sudo ./snyk-scan.sh --mode=test --type=golang
+      - name: Run snyk-scan.sh for java_maven
+        run: |
+          sudo ./snyk-scan.sh --mode=test --type=java_maven
+      - name: Run snyk-scan.sh for java_gradle
+        run: |
+          sudo ./snyk-scan.sh --mode=test --type=java_gradle
